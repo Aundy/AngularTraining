@@ -1,7 +1,8 @@
-angular.module('DemoApp').controller('EmployeeController', function($rootScope, $scope, $location, employeeFactory) {
+angular.module('DemoApp').controller('EmployeeController', function($rootScope, $scope, $location, $routeParams, employeeFactory) {
 
   init();
-    
+  
+  $scope.userName = $routeParams.empName;
   $rootScope.empId = "E0069";
   $rootScope.activities = [];
   $scope.employees = employeeFactory.employees; 

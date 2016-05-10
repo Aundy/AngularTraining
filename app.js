@@ -2,7 +2,7 @@ angular.module('profile', []);
 var myApp = angular.module('DemoApp', ['ngRoute', 'profile']);
 myApp.config(function($routeProvider){
 	$routeProvider.
-		when('/', {
+		when('/emp/:empName', {
 			templateUrl: 'templates/employee_list.html',
 			controller: 'EmployeeController'
 		}).
@@ -10,11 +10,11 @@ myApp.config(function($routeProvider){
 			templateUrl: 'templates/profile.html',
 			controller: 'ProfileController'
 		}).
-		when('/logintest', {
-			templateUrl: 'templates/logintest.html',
-			controller: 'LoginAngularController'
+		when('/login', {
+			templateUrl: 'templates/login.html',
+			controller: 'LoginController'
 		}).
 		otherwise({
-			redirectTo: '/logintest'
+			redirectTo: '/login'
 		});
 });

@@ -1,7 +1,7 @@
-angular.module('DemoApp').controller('LoginAngularController', function($rootScope, $scope, $location) {
+angular.module('DemoApp').controller('LoginController', function($rootScope, $scope, $location) {
 	
 	$scope.login = function() {
-		$rootScope.userName = $scope.userName;
-		$location.path('/');
+		//$rootScope.userName = $scope.userName;
+		$location.path('/emp/' + $scope.userName);
 	};
 });
