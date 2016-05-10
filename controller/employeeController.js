@@ -1,8 +1,7 @@
-angular.module('DemoApp').controller('EmployeeController', function($rootScope, $scope, employeeFactory) {
+angular.module('DemoApp').controller('EmployeeController', function($rootScope, $scope, $location, employeeFactory) {
 
   init();
     
-  $rootScope.userName = "AundyAnandh";
   $rootScope.empId = "E0069";
   $rootScope.activities = [];
   $scope.employees = employeeFactory.employees; 
@@ -31,6 +30,7 @@ angular.module('DemoApp').controller('EmployeeController', function($rootScope, 
   $scope.seeProfile = function(e) {
     $rootScope.activities.push("See the profile of " + e.fName);
     employeeFactory.updateSharedProfile(e);
+    $location.path('/profile');
   }
 
   function init() {
@@ -39,8 +39,8 @@ angular.module('DemoApp').controller('EmployeeController', function($rootScope, 
     $scope.project = "";
   };
 
-  if ($scope.employees && $scope.employees.length > 0) {
-    $scope.seeProfile($scope.employees[0]);
-  }
+  // if ($scope.employees && $scope.employees.length > 0) {
+  //   $scope.seeProfile($scope.employees[0]);
+  // }
 });
 

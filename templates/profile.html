@@ -1,0 +1,11 @@
+ <div>
+    <p>Id - {{currentEmployee.id}}, Name - {{currentEmployee.fName}}, Role - {{currentEmployee.role}}</p>
+    <p>Project Name - {{currentEmployee.project.name}}, Location - {{currentEmployee.project.location}}</p>
+    
+    <employee-add-directive info="currentEmployee" add-or-update="updateEmployee(currentEmployee)" button-name="Update"></employee-add-directive>
+  </div>
+  <ul>
+    <li ng-repeat="e in activities track by $index">
+    {{ e }}
+    </li>
+  </ul>

@@ -1,40 +1,23 @@
 <!DOCTYPE html>
 <html ng-app="DemoApp">
 <head>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
-    <script src="app.js"></script>
-    <script src="employeeFactory.js"></script>
-    <script src="controller/employeeController.js"></script>
-    <script src="directive/employeeDirective.js"></script>
-    <script src="directive/employeeAddDirective.js"></script>
-    <script src="controller/profileController.js"></script>
+  <title>Angular Training</title>
 </head>
 
-<body>  
-  <h4> {{ userName }} - {{ empId }} </h4>
-  <div ng-controller="EmployeeController">
-  
-     <employee-add-directive info="emp" add-or-update="addEmployee()" button-name="Add"></employee-add-directive>
-    
-    <ul>
-      <li ng-repeat="e in employees">
-        <employee-directive>
-        </employee-directive>  
-      </li>
-    </ul>
-  </div>
-  
-  <div ng-controller="ProfileController">
-    <p>Id - {{currentEmployee.id}}, Name - {{currentEmployee.fName}}, Role - {{currentEmployee.role}}</p>
-    <p>Project Name - {{currentEmployee.project.name}}, Location - {{currentEmployee.project.location}}</p>
-    
-    <employee-add-directive info="currentEmployee" add-or-update="updateEmployee(currentEmployee)" button-name="Update"></employee-add-directive>
-  </div>
-  <ul>
-    <li ng-repeat="e in activities track by $index">
-    {{ e }}
-    </li>
-  </ul>
+<body>
+  <div ng-view></div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-route.js"></script>
+
+  <script src="app.js"></script>
+  <script src="employeeFactory.js"></script>
+  <script src="controller/employeeController.js"></script>
+  <script src="controller/loginController.js"></script>
+  <script src="directive/employeeDirective.js"></script>
+  <script src="directive/employeeAddDirective.js"></script>
+  <script src="controller/profileController.js"></script>
+
 </body>
 
 </html>

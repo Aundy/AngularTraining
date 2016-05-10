@@ -1,0 +1,12 @@
+  <h4>{{ userName }} - {{ empId }} </h4>
+  <div>
+  
+     <employee-add-directive info="emp" add-or-update="addEmployee()" button-name="Add"></employee-add-directive>
+    
+    <ul>
+      <li ng-repeat="e in employees">
+        <employee-directive>
+        </employee-directive>  
+      </li>
+    </ul>
+  </div>
