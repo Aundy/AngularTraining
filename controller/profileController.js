@@ -1,5 +1,6 @@
-angular.module('profile').controller('ProfileController', function($rootScope, $scope, employeeFactory) {
-  $scope.currentEmployee = employeeFactory.sharedProfile;
+angular.module('profile').controller('ProfileController', function($rootScope, $scope, $stateParams, employeeFactory) {
+  // $scope.id = $stateParams.employeeId;
+  $scope.currentEmployee = employeeFactory.getEmployeeById($stateParams.employeeId);
 
   $scope.updateEmployee = function(e){
   	console.log("test");

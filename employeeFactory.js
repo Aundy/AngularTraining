@@ -35,6 +35,9 @@ angular.module('DemoApp').factory('employeeFactory', function() {
       }
     },
     employees: empList,
+    getEmployeeById(id){
+      emp = getItemById(empList, id);
+    },
     addEmployee(e){
       var exists = false;
       for (var i = 0; i < empList.length; i++) {
@@ -58,6 +61,9 @@ angular.module('DemoApp').factory('employeeFactory', function() {
       var index = empList.indexOf(e);
       empList.splice(index, 1);
     },
+    seeProfile(e){
+
+    },
     updateProfile(e){
       for (var i = 0; i < empList.length; i++) {
         if (empList[i].id === e.id) {
@@ -76,4 +82,12 @@ angular.module('DemoApp').factory('employeeFactory', function() {
       this.sharedProfile.project = newEmp.project;
     }
   };
+
+  function getItemById(anArray, id) {
+    for (var i = 0; i < anArray.length; i += 1) {
+        if (anArray[i].id === id) {
+            return anArray[i];
+        }
+    }
+}
 });

@@ -1,9 +1,12 @@
-angular.module('DemoApp').controller('EmployeeController', function($rootScope, $scope, $location, $routeParams, employeeFactory) {
+angular.module('employee').controller('EmployeeController', 
+  function($rootScope, $scope, $state, $stateParams, employeeFactory) {
 
   init();
   
-  $scope.userName = $routeParams.empName;
-  $rootScope.empId = "E0069";
+  $scope.userName = $stateParams.userName;
+  $rootScope.empId = $stateParams.userId;
+  console.log('$stateParams.userName', $stateParams.userName);
+
   $rootScope.activities = [];
   $scope.employees = employeeFactory.employees; 
 
@@ -18,20 +21,26 @@ angular.module('DemoApp').controller('EmployeeController', function($rootScope, 
         }
       };
       if(employeeFactory.addEmployee(newEmployee)){
-        $rootScope.activities.push("Added new emp " + newEmployee.fName);
+        $scope.$broadcast('ActivityListener', {data: 'Added new emp ' + newEmployee.fName});
         init();
       }
     };
 
+  $scope.$on('SuccessListener', function(ev, args) {
+    console.log('SuccessListener - Successfully added from Child');
+  });
+
   $scope.delete = function(e) {
-    $rootScope.activities.push("Deleted " + e.fName);
+    $scope.$broadcast('ActivityListener', 'Deleted the profile of  ' + e.fName);
     employeeFactory.deleteEmployee(e);
   }
 
   $scope.seeProfile = function(e) {
-    $rootScope.activities.push("See the profile of " + e.fName);
+    // $rootScope.activities.push("See the profile of " + e.fName);
+    $scope.$broadcast('ActivityListener', 'See the profile of  ' + e.fName);
     employeeFactory.updateSharedProfile(e);
-    $location.path('/profile');
+    //$location.path('/profile');
+    // $state.go('profile', {employeeId: e.id});
   }
 
   function init() {
