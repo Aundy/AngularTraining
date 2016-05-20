@@ -1,7 +1,7 @@
 <div>
-	<input type="text" placeholder="input name" ng-model="customerInfo.fName" ng-change="flag=true"/>
-	<input type="text" placeholder="input role" ng-model="customerInfo.role" ng-change="flag=true"/>
-	<input type="text" placeholder="input project name" ng-model="customerInfo.project.name" ng-change="flag=true"/>
-	<input type="text" placeholder="input location" ng-model="customerInfo.project.location" ng-change="flag=true"/>
-	<button ng-click ="addOrUpdate()" ng-disabled="!flag || !customerInfo.fName || !customerInfo.role || !customerInfo.project.name || !customerInfo.project.location">{{buttonName}}</button>
+	<input type="text" placeholder="input name" ng-model="customerInfo.fName"/>
+	<input type="text" placeholder="input role" ng-model="customerInfo.role"/>
+	<input type="text" placeholder="input project name" ng-model="customerInfo.project.name" />
+	<input type="text" placeholder="input location" ng-model="customerInfo.project.location" />
+	<button ng-click ="addOrUpdate()" ng-disabled="buttonDisabled || !customerInfo.fName || !customerInfo.role">{{buttonName}}</button>
 </div>

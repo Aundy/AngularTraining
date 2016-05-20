@@ -1,7 +1,7 @@
  <div>
-    <p>Id - {{currentEmployee.id}}, Name - {{currentEmployee.fName}}, Role - {{currentEmployee.role}}</p>
-    <p>Project Name - {{currentEmployee.project.name}}, Location - {{currentEmployee.project.location}}</p>
+    <p>Id - {{actualEmp.id}}, Name - {{actualEmp.fName}}, Role - {{actualEmp.role}}</p>
+    <p>Project Name - {{actualEmp.project.name}}, Location - {{actualEmp.project.location}}</p>
     
-    <employee-add-directive info="currentEmployee" add-or-update="updateEmployee(currentEmployee)" button-name="Update"></employee-add-directive>
+    <employee-add-directive info="currentEmployee" button-disabled="buttonDisabled" add-or-update="updateEmployee(currentEmployee)" button-name="Update"></employee-add-directive>
   </div>
 <h4>test</h4>

@@ -21,7 +21,7 @@ myApp.config(function($stateProvider, $urlRouterProvider){
 		   controller: 'EmployeeController'
 		})
 		.state('profile', {
-		   url:'/profile',
+		   url:'/profile/{empId}',
 		   templateUrl: 'templates/profile.html',
 		   controller: 'ProfileController'
 		});

@@ -36,7 +36,8 @@ angular.module('DemoApp').factory('employeeFactory', function() {
     },
     employees: empList,
     getEmployeeById(id){
-      emp = getItemById(empList, id);
+      console.log('id', id);
+      return getItemById(empList, id);
     },
     addEmployee(e){
       var exists = false;
@@ -48,6 +49,17 @@ angular.module('DemoApp').factory('employeeFactory', function() {
           exists = true;
           return;
         }
+      }
+
+      if(!e.project){
+        e.project = {
+          name: 'TBD',
+          location: 'TDB'
+        }
+      }
+
+      if(!e.project.location){
+        e.project.location = 'TBD';
       }
       if(!exists){
         console.log('User not exists');
@@ -85,9 +97,22 @@ angular.module('DemoApp').factory('employeeFactory', function() {
 
   function getItemById(anArray, id) {
     for (var i = 0; i < anArray.length; i += 1) {
-        if (anArray[i].id === id) {
+        if (anArray[i].id == id) {
             return anArray[i];
         }
     }
 }
+});
+
+angular.module('DemoApp').service('activityService', function(){
+  var activities = [];
+
+  this.get = function(){
+    return activities;
+  }
+
+  this.add = function(e){
+    activities.push(e);
+  }
+
 });
