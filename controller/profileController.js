@@ -22,7 +22,7 @@ angular.module('profile').controller('ProfileController',
 	$scope.updateEmployee = function(e){
 		console.log("test");
 		if(employeeFactory.updateProfile(e)){
-			$scope.$broadcast('ActivityListener', 'Updated the profile of  ' + e.fName);
+			$scope.$broadcast('ActivityListener', {data: 'Updated the profile of  ' + e.fName});
 			$state.go('employee', {userName: $rootScope.userName, userId: $rootScope.empId});
 		}
   };

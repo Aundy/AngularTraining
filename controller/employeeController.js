@@ -65,14 +65,14 @@ angular.module('employee').controller('EmployeeController',
     };
 
   $scope.delete = function(e) {
-    $scope.$broadcast('ActivityListener', 'Deleted the profile of  ' + e.fName);
+    $scope.$broadcast('ActivityListener', {data: 'Deleted the profile of  ' + e.fName});
     employeeFactory.deleteEmployee(e);
     $scope.hasListener = false;
   }
 
   $scope.seeProfile = function(e) {
     // $rootScope.activities.push("See the profile of " + e.fName);
-    $scope.$broadcast('ActivityListener', 'See the profile of  ' + e.fName);
+    $scope.$broadcast('ActivityListener', {data: 'See the profile of  ' + e.fName});
     employeeFactory.updateSharedProfile(e);
     $scope.hasListener = true;
     //$location.path('/profile/' + e.id);
